@@ -1,0 +1,34 @@
+﻿@using FoxClub.Models
+@model Fox
+
+<h2>Index / Info</h2>
+<ul>
+    <li><a href="/">Home Page</a></li>
+    @*<li>@Html.ActionLink("Nutrition store", "NutritionStore", Model)</li>*@
+    @*<li>@Html.ActionLink("Trick Center", "TrickCenter", Model)</li>*@
+
+    <li>@Html.ActionLink("Profile", "Index", new { name = Model.Name })</li>
+    <li>@Html.ActionLink("Nutrition store", "NutritionStore", new { name = Model.Name })</li>
+    <li>@Html.ActionLink("Trick Center", "TrickCenter", new { name = Model.Name })</li>
+
+</ul>
+
+<img src="~/Content/Images/greenfox.png" alt="Green Fox Logo" />
+<p>This is @Model.Name currently living on a @Model.Food and @Model.Drink. He knows @Model.ListOfTricks.Count tricks.</p>
+
+<h2>Known tricks</h2>
+@if (Model.ListOfTricks.Count == 0)
+{
+    <p>You dont know any tricks yet. Go and learn some.</p>
+}
+else
+{
+    <ul>
+        @foreach (var trick in Model.ListOfTricks)
+        {
+            <li>@trick</li>
+        }
+    </ul>
+}
+
+

@@ -1,0 +1,36 @@
+﻿@using FoxClub.Models
+@*@model String*@
+@model Fox
+
+
+<h2>NutritionStore</h2>
+<ul>
+    <li><a href="/">Home Page</a></li>
+    <li>@Html.ActionLink("Nutrition store", "NutritionStore", new { name = Model.Name })</li>
+    <li>@Html.ActionLink("Trick Center", "TrickCenter", new { name = Model.Name })</li>
+</ul>
+
+<form action="/nutritionstore" method="post">
+
+    <select name="food">
+        <option value="pizza">Pizza</option>
+        <option value="kebab">Kebab</option>
+        <option value="kfc">KFC</option>
+        <option value="enchiladas">Enchiladas</option>
+    </select>
+
+    <select name="drink">
+        <option value="beer">Beer</option>
+        <option value="water">Water</option>
+        <option value="lemonade">Lemonade</option>
+        <option value="tequilla">Tequilla</option>
+    </select>
+
+    @*<input type="hidden" name="name" value="@Model" />*@
+    <input type="hidden" name="name" value="@Model.Name" /> @* is this good approach? is it used usually?*@
+
+
+    <button type="submit">Change</button>
+
+</form>
+

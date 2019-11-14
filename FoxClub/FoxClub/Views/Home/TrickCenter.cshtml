@@ -1,0 +1,26 @@
+﻿@using FoxClub.Models
+@*@model String*@
+@model Fox
+
+
+<h2>TrickCenter</h2>
+<ul>
+    <li><a href="/">Home Page</a></li>
+    <li>@Html.ActionLink("Nutrition store", "NutritionStore", new { name = Model.Name })</li>
+    <li>@Html.ActionLink("Trick Center", "TrickCenter", new { name = Model.Name })</li>
+</ul>
+
+<form action="/trickcenter" method="post">
+
+    <select name="trick">
+        <option value="HTML">HTML</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="C#">C#</option>
+        <option value="ASP.NET">ASP.NET</option>
+    </select>
+
+    <input type="hidden" name="name" value="@Model.Name" />
+    <button type="submit">Learn</button>
+
+
+</form>
